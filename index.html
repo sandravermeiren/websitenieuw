@@ -740,7 +740,6 @@ footer{padding:0 clamp(.6rem,1.5vw,1rem) clamp(.6rem,1.5vw,1rem);margin-top:0}
           <p>Therapeutisch betekent dat we de diepte durven ingaan: we kijken bv. naar beschermingsstrategieën die ooit nuttig waren, maar je nu in de weg zitten.</p>
           <p>Gedurende de sessie en het traject blijf jij aan het stuur van je eigen proces.</p><ul class="pts"><li>Ik spiegel.</li><li>Ik geef oefeningen.</li><li>Ik stel vragen.</li></ul><p>Ik doe wat ik kan om ervoor te zorgen dat jij je antwoorden vindt.</p>
           <p class="wnote">Let wel: Therapeutische coaching vervangt geen psychotherapie of medische begeleiding. Merk ik dat er nood is aan meer, dan kan ik je doorverwijzen.</p>
-          <p class="wfoot">Dit kan deel zijn van een sessie thuiskomen, belichamen en uitdragen. <button type="button" class="tlink" data-go="stap3">Terug naar de sessie</button></p>
         </article>
         <article class="wcard" id="werk-opstelling">
           <h3>Opstellingswerk</h3>
@@ -748,7 +747,6 @@ footer{padding:0 clamp(.6rem,1.5vw,1rem) clamp(.6rem,1.5vw,1rem);margin-top:0}
           <p>We kennen opstellingen veelal als familieopstellingen, waarbij alle leden van je kerngezin een plek krijgen in de ruimte en de wisselwerking en dynamiek tussen hen zichtbaar wordt, maar veel meer kan opgesteld worden:</p><p>We kunnen de leden van een team opstellen, de afdelingen van een onderneming, verschillende innerlijke delen van jouzelf of je doel met je belemmeringen en hulpbronnen.</p>
           <p>Deze onderdelen van je systeem kunnen op verschillende manieren worden gerepresenteerd: Andere personen kunnen de positie aannemen van je moeder of vader, een afdeling in je onderneming, je doel of je belemmering.</p><p>De basisaanname bij opstellingswerk is dat elk systeem een eigen, voelbaar veld met eigen dynamieken heeft. Zodra andere personen als representant in dit veld stappen, pikken ze deze energie vanzelf op en handelen ze er moeiteloos naar.</p>
           <p>In individuele sessies maken we zelden gebruik van andere personen als representanten. We kiezen er eerder voor poppetjes of blokjes of gekleurde matjes op de vloer. Ook hier geldt dat het veld en de dynamiek in het systeem voelbaar worden, zodra deze blokjes of matjes op hun plek liggen en we ermee beginnen te werken.</p>
-          <p class="wfoot">Dit kan deel zijn van een sessie thuiskomen, belichamen en uitdragen. <button type="button" class="tlink" data-go="stap2">Terug naar de sessie</button></p>
         </article>
         <article class="wcard" id="werk-trauma">
           <h3>Lichaamsgericht (trauma)werk</h3>
@@ -761,7 +759,6 @@ footer{padding:0 clamp(.6rem,1.5vw,1rem) clamp(.6rem,1.5vw,1rem);margin-top:0}
           <p>In traumawerk maken we contact met de opgesloten energie in het lichaam, we voelen de overspanning en bevriezing en laten de energie weer stromen. Dit doen we voorzichtig en afgestemd. Het aanraken van de opgesloten energie wordt afgewisseld met oefeningen om veiligheid te ervaren. Op die manier leren we aan het systeem dat het (eindelijk) veilig is om te ontspannen.</p>
           <p class="wseal">Ik werk in zachtheid. Ik geloof niet in opbouwen naar een overweldigende emotionele ontlading, wel in een zacht, veilig, bewust proces.</p>
           <p class="wnote">We werken op een matrasje of matjes, alle materiaal is aanwezig. Loszittende kledij is fijn, maar geen verplichting.</p>
-          <p class="wfoot">Dit kan deel zijn van een sessie thuiskomen, belichamen en uitdragen. <button type="button" class="tlink" data-go="stap1">Terug naar de sessie</button></p>
         </article>
         <article class="wcard" id="werk-energie">
           <h3>Energetisch werk</h3>
@@ -771,7 +768,6 @@ footer{padding:0 clamp(.6rem,1.5vw,1rem) clamp(.6rem,1.5vw,1rem);margin-top:0}
           <p>Bij energetisch werk gaan we kijken waar de fontein onvoldoende gevoed of vervormd is en herstellen we energetisch de stroom.</p>
           <p>Er bestaan verschillende technieken om in deze subtiele dimensies te werken:</p><ul class="pts"><li>Ik kan je lichaam zachtjes aanraken.</li><li>Ik kan met mijn handen in de lagen rondom je lichaam werken.</li><li>Ik kan puur met intentie werken.</li></ul><p>Al deze vormen werken op jouw subtiele energielagen in. Het effect voel je soms direct, vaak ook enkele dagen later.</p>
           <p>Bij deze werkvorm zit of lig jij comfortabel in een stoel of op een matrasje en hoef je helemaal niks te doen.</p>
-          <p class="wfoot">Dit kan deel zijn van een sessie thuiskomen, belichamen en uitdragen. <button type="button" class="tlink" data-go="stap2">Terug naar de sessie</button></p>
         </article>
 </div>
       </div>
@@ -1369,8 +1365,6 @@ footer{padding:0 clamp(.6rem,1.5vw,1rem) clamp(.6rem,1.5vw,1rem);margin-top:0}
       b.addEventListener('pointerenter',function(e){if(e.pointerType==='mouse')werkOpen(id)});
       b.addEventListener('click',function(){if(b.getAttribute('aria-expanded')==='true'&&Date.now()-wopened>600){werkClose();wopened=0}else werkOpen(id)});
     });
-    wwrap.addEventListener('pointerleave',function(e){if(e.pointerType!=='mouse')return;clearTimeout(wtimer);wtimer=setTimeout(werkClose,250)});
-    wwrap.addEventListener('pointerenter',function(){clearTimeout(wtimer)});
     wwrap.querySelector('.wclose').addEventListener('click',werkClose);
     document.addEventListener('keydown',function(e){if(e.key==='Escape')werkClose()});
   }
