@@ -1292,6 +1292,7 @@ footer{padding:0 clamp(.6rem,1.5vw,1rem) clamp(.6rem,1.5vw,1rem);margin-top:0}
         <div class="formcard">
           <h3>Stuur me een bericht</h3>
           <form id="contactForm" novalidate>
+            <div style="position:absolute;left:-9999px;height:0;overflow:hidden" aria-hidden="true"><label for="cHoney">Laat dit leeg</label><input id="cHoney" name="website" tabindex="-1" autocomplete="off"></div>
             <div><label for="cName">Naam</label><input id="cName" autocomplete="name" placeholder="Je naam"></div>
             <div><label for="cMail">E-mailadres</label><input id="cMail" type="email" autocomplete="email" placeholder="naam@voorbeeld.be"></div>
             <div><label for="cMsg">Je bericht</label><textarea id="cMsg" placeholder="Waarmee kan ik je helpen?"></textarea></div>
@@ -1424,9 +1425,17 @@ footer{padding:0 clamp(.6rem,1.5vw,1rem) clamp(.6rem,1.5vw,1rem);margin-top:0}
   });
   document.getElementById('contactForm').addEventListener('submit',function(e){
     e.preventDefault();
-    var n=document.getElementById('cName').value.trim(),m=document.getElementById('cMail').value.trim(),b=document.getElementById('cMsg').value.trim();
+    var f=e.target,n=document.getElementById('cName').value.trim(),m=document.getElementById('cMail').value.trim(),b=document.getElementById('cMsg').value.trim();
     if(!n||!mailRe.test(m)||!b){out('contactOut','Vul je naam, een geldig e-mailadres en je bericht in.');return}
-    out('contactOut','Dank, '+n+'. Dit is de voorbeeldweergave: er is nog niets verstuurd.');
+    var btn=f.querySelector('button');btn.disabled=true;out('contactOut','Even geduld…');
+    fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({naam:n,mail:m,bericht:b,website:document.getElementById('cHoney').value})})
+      .then(function(r){return r.json().catch(function(){return{ok:false}})})
+      .then(function(j){
+        if(j&&j.ok){f.reset();out('contactOut','Dank, '+n+'. Je bericht is verstuurd. Je krijgt zo snel mogelijk antwoord.')}
+        else{out('contactOut',(j&&j.fout)||'Versturen is niet gelukt. Probeer het later opnieuw.')}
+      })
+      .catch(function(){out('contactOut','Versturen is niet gelukt. Controleer je verbinding en probeer het opnieuw.')})
+      .then(function(){btn.disabled=false});
   });
 
   var MN=['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
