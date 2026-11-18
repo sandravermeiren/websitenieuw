@@ -15,7 +15,7 @@
 /* Layout: één groot beige kaartvlak (zoals Wilde Magie) op een vaste gouden sterrenachtergrond; menu bovenaan, pagina's in banden, footerblok onderaan. */
 :root{
   --sand:#f1e6d4;        /* paginagrond achter de kaart */
-  --shellw:min(100vw - 6rem,1400px);
+  --shellw:100%;
   --card:#f2e6d6;        /* hoofdvlak */
   --cream:#fbf5e9;       /* lichte band */
   --block:#e5d1b9;       /* footerblok en brede kaarten */
@@ -32,9 +32,9 @@
 *{box-sizing:border-box}
 body,button,input,textarea{font-variant-ligatures:no-common-ligatures no-discretionary-ligatures no-contextual;font-feature-settings:'liga' 0,'dlig' 0,'clig' 0,'calt' 0}
 html{scroll-behavior:smooth}
-body{position:relative;background:#e9dccb;color:var(--ink);font-family:var(--font-body);font-size:1.08rem;line-height:1.65;margin:0;padding:3.4rem 3rem 3.4rem;overflow-x:hidden}
-html{background:#7a4f2c}
-.stage{position:fixed;inset:0;z-index:0;pointer-events:none;background:#7a4f2c url(img/bos-achtergrond.jpg) center/cover no-repeat}
+body{position:relative;background:transparent;color:var(--ink);font-family:var(--font-body);font-size:1.08rem;line-height:1.65;margin:0;padding:0;overflow-x:hidden}
+html{background:#f2e6d6}
+.stage{display:none}
 img{display:block}
 a{color:var(--brown)}
 h1,h2,h3{font-family:var(--font-display);font-weight:400;margin:0;line-height:1.15;color:var(--ink);text-wrap:balance;letter-spacing:.12em;text-transform:uppercase}
@@ -44,7 +44,7 @@ h3{font-size:1.2rem}
 p{margin:0 0 1rem}
 :focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:8px}
 
-.shell{position:relative;z-index:1;width:var(--shellw);margin:0 auto;background:var(--card);border-radius:30px;box-shadow:0 10px 50px rgba(60,38,16,.35);overflow:hidden}
+.shell{position:relative;z-index:1;width:100%;margin:0;background:var(--card);border-radius:0;box-shadow:none;overflow:hidden;min-height:100vh}
 
 /* header */
 .top{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.4rem clamp(1rem,4vw,3rem) .6rem;position:relative}
@@ -401,7 +401,7 @@ a.card:hover{border-color:var(--brown)}
 .stop img{width:100%;height:100%;object-fit:cover}
 .stop .bar{position:absolute;left:0;right:0;bottom:12%;line-height:1.25;background:rgba(60,40,25,.62);color:#fbf1de;font-family:var(--font-display);letter-spacing:.12em;font-size:clamp(.45rem,1.35vw,.92rem);padding:.25em 0;text-transform:uppercase}
 .under{display:none;position:absolute;left:50%;top:100%;transform:translateX(-50%);margin-top:.5rem;font-family:var(--font-display);letter-spacing:.1em;font-size:.72rem;text-transform:uppercase;color:var(--ink);white-space:nowrap}
-@media (max-width:640px){:root{--shellw:calc(100vw - 1.2rem)}body{padding:3rem .6rem}.stop{overflow:visible}.stop img{border-radius:50%}.stop .bar{display:none}.under{display:block}.route{margin-bottom:2rem}}
+@media (max-width:640px){.stop{overflow:visible}.stop img{border-radius:50%}.stop .bar{display:none}.under{display:block}.route{margin-bottom:2rem}}
 .step{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:center;margin:2rem 0 2.2rem}
 .step .photo{aspect-ratio:1/.88}
 .step.flip .photo{order:2}
